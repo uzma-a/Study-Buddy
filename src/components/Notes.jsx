@@ -188,15 +188,19 @@ export default function Notes() {
             <div className="p-4 sm:p-8">
               <div className="prose prose-sm sm:prose-lg dark:prose-invert max-w-none 
                 prose-headings:text-gray-900 dark:prose-headings:text-white 
+                prose-headings:mb-6 prose-headings:mt-8 prose-headings:pb-3 prose-headings:border-b-2 prose-headings:border-blue-500/20
                 prose-p:text-gray-700 dark:prose-p:text-gray-300 
+                prose-p:mb-6 prose-p:pb-6 prose-p:leading-relaxed prose-p:border-b prose-p:border-gray-200/50 dark:prose-p:border-gray-700/30
+                prose-p:last:border-b-0
                 prose-li:text-gray-700 dark:prose-li:text-gray-300 
+                prose-ul:mb-6 prose-ul:pb-6 prose-ul:border-b prose-ul:border-gray-200/50 dark:prose-ul:border-gray-700/30
+                prose-ol:mb-6 prose-ol:pb-6 prose-ol:border-b prose-ol:border-gray-200/50 dark:prose-ol:border-gray-700/30
                 prose-strong:text-gray-900 dark:prose-strong:text-white 
                 prose-code:text-purple-600 dark:prose-code:text-purple-400 
-                prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900">
+                prose-pre:bg-gray-100 dark:prose-pre:bg-gray-900 prose-pre:mb-6">
                 <ReactMarkdown>{notes}</ReactMarkdown>
               </div>
             </div>
-
           </div>
         )}
 
