@@ -3,29 +3,35 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
+// Generate Notes Feature
 export const generateNotes = async (topic) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-  const prompt = `Create clear, simple bullet-point notes about "${topic}". Highlight key terms.`;
+  const prompt = `Create clear study notes about "${topic}" in simple Markdown format.
+
+- Use 3 short paragraphs with proper spacing.
+
+- Highlight key terms in **bold**.
+
+- At the end, include 4–5 key points as bullet points.`;
 
   const result = await model.generateContent(prompt);
-
-  // ✅ This works reliably
   const text = result.response.candidates[0].content.parts[0].text;
 
   return text;
 };
 
-
+// Summarize Text Feature
 export const summarizeText = async (text) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
   const prompt = `Summarize this text into short, easy notes:\n\n${text}`;
   const result = await model.generateContent(prompt);
   return result.response.text();
 };
 
+// Generate Quiz Feature
 export const generateQuiz = async (topic, numQuestions = 10) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
   const prompt = `Generate ${numQuestions} multiple-choice questions on "${topic}". 
 Each question must have 4 options with letters A, B, C, D followed by a colon and the option text.
