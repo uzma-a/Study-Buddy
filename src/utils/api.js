@@ -4,7 +4,7 @@ const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 export const generateNotes = async (topic) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `Create clear, simple bullet-point notes about "${topic}". Highlight key terms.`;
 
@@ -18,7 +18,7 @@ export const generateNotes = async (topic) => {
 
 
 export const summarizeText = async (text) => {
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   const prompt = `Summarize this text into short, easy notes:\n\n${text}`;
   const result = await model.generateContent(prompt);
   return result.response.text();
